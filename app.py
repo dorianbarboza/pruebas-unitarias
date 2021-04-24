@@ -23,7 +23,7 @@ class User(db.Model):
 def get_all_users():
     users = User.query.all()
     return jsonify({
-    [user.serialize() for user in users]
+       'data':[user.serialize() for user in users]
     }), 200
 
 @app.route('/post_users', methods=['POST'])
