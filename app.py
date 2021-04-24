@@ -28,12 +28,12 @@ def get_all_users():
 
 @app.route('/post_users', methods=['POST'])
 def post_user():
-    username = request.form.get['username']
-    password = request.form.get['password']
-
+    username = request.form['username']
+    password = request.form['password']
     new_user=User(username=username, password=password)
     db.session.add(new_user)
     db.session.commit()
+    return {'message':'done'}, 201
     
 
 if __name__ == '__main__':
